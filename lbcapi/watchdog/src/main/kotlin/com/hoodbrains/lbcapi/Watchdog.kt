@@ -1,6 +1,6 @@
 package com.hoodbrains.lbcapi
 
-import com.hoodbrains.lbcapi.ktor.internal.createApi
+import com.hoodbrains.lbcapi.ktor.createApi
 import kotlinx.coroutines.runBlocking
 
 
