@@ -4,7 +4,7 @@ object Dependencies {
 
     object GradlePlugins {
         const val androidBuildToolsGradlePlugin = "com.android.tools.build:gradle:7.1.2"
-        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Config.kotlinVersion}"
     }
 
     object Testing {
@@ -16,6 +16,10 @@ object Dependencies {
 
     object Coroutines {
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    }
+
+    object Serialization {
+        const val Json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
     }
 
 }
