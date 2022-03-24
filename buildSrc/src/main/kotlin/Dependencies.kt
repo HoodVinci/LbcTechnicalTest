@@ -4,7 +4,7 @@ object Dependencies {
 
     object GradlePlugins {
         const val androidBuildToolsGradlePlugin = "com.android.tools.build:gradle:7.1.2"
-        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Config.kotlinVersion}"
     }
 
     object Testing {
@@ -18,4 +18,16 @@ object Dependencies {
         const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     }
 
+    object Serialization {
+        const val Json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
+    }
+
+    object Ktor{
+        private const val ktorVersion = "1.6.8"
+        const val core = "io.ktor:ktor-client-core:$ktorVersion"
+
+        const val clientCio = "io.ktor:ktor-client-cio:$ktorVersion"
+        const val serialization = "io.ktor:ktor-client-serialization:$ktorVersion"
+        const val clientLogging = "io.ktor:ktor-client-logging:$ktorVersion"
+    }
 }
