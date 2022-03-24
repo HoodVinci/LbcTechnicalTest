@@ -13,3 +13,4 @@ It uses precompiled gradle plugins.
 ## Modules
 
 [LbcApi](./lbcapi/README.md)
+[Domain](./domain/README.md)
