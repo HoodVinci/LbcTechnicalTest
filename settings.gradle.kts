@@ -1,3 +1,3 @@
 rootProject.name = "LbcTechnicalTest"
 
-include(":lbcapi:api")
+include(":lbcapi:api", ":lbcapi:ktor")

@@ -22,4 +22,12 @@ object Dependencies {
         const val Json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
     }
 
+    object Ktor{
+        private const val ktorVersion = "1.6.8"
+        const val core = "io.ktor:ktor-client-core:$ktorVersion"
+
+        const val clientCio = "io.ktor:ktor-client-cio:$ktorVersion"
+        const val serialization = "io.ktor:ktor-client-serialization:$ktorVersion"
+        const val clientLogging = "io.ktor:ktor-client-logging:$ktorVersion"
+    }
 }
