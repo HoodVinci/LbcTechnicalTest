@@ -9,7 +9,7 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-    implementation(Dependencies.Coroutines.coroutinesCore)
+    implementation(Dependencies.Coroutines.core)
     testImplementation(Dependencies.Testing.junit)
     testImplementation(Dependencies.Testing.mockitoKotlin)
     testImplementation(Dependencies.Testing.truth)
