@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.hoodbrains.lbctest.R
 import com.hoodbrains.lbctest.databinding.FragmentItemListBinding
 import com.hoodbrains.lbctest.presentation.features.itemlist.ItemListViewState
@@ -30,7 +30,7 @@ class ItemListFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.recycler?.let {
-            it.layoutManager = LinearLayoutManager(requireContext())
+            it.layoutManager = GridLayoutManager(requireContext(), resources.getInteger(R.integer.item_list_column_number))
             it.adapter = adapter
         }
     }
@@ -42,16 +42,41 @@ class ItemListFragment(
 
     override fun onResume() {
         super.onResume()
-        viewModel.start().observe(viewLifecycleOwner) { render(it) }
+        viewModel.start().observe(viewLifecycleOwner) { binding?.render(it) }
     }
 
-    private fun render(state: ItemListViewState) =
-        when (state) {
-            is ItemListViewState.Data -> adapter.updateItems(state.list)
-            is ItemListViewState.Empty -> binding?.text?.text = state.message
-            ItemListViewState.Error -> binding?.text?.text = "error"
-            ItemListViewState.Loading -> binding?.text?.text = "loading"
-        }
+    private fun FragmentItemListBinding.render(state: ItemListViewState) = when (state) {
+        is ItemListViewState.Data -> renderData(state)
+        is ItemListViewState.Empty -> renderEmpty(state)
+        ItemListViewState.Error -> renderError()
+        ItemListViewState.Loading -> renderLoading()
+    }
 
 
+    private fun FragmentItemListBinding.renderLoading() {
+        loader.visibility = View.VISIBLE
+        text.visibility = View.INVISIBLE
+        recycler.visibility = View.INVISIBLE
+    }
+
+    private fun FragmentItemListBinding.renderData(state: ItemListViewState.Data) {
+        loader.visibility = View.INVISIBLE
+        text.visibility = View.INVISIBLE
+        recycler.visibility = View.VISIBLE
+        adapter.updateItems(state.list)
+    }
+
+    private fun FragmentItemListBinding.renderEmpty(state: ItemListViewState.Empty) {
+        loader.visibility = View.INVISIBLE
+        text.visibility = View.VISIBLE
+        recycler.visibility = View.INVISIBLE
+        text.text = state.message
+    }
+
+    private fun FragmentItemListBinding.renderError() {
+        loader.visibility = View.INVISIBLE
+        text.visibility = View.VISIBLE
+        recycler.visibility = View.INVISIBLE
+        text.text = "error"
+    }
 }
