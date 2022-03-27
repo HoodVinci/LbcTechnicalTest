@@ -32,13 +32,19 @@ object Dependencies {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.1"
     }
 
-    object Ktor{
+    object Ktor {
         private const val ktorVersion = "1.6.8"
         const val core = "io.ktor:ktor-client-core:$ktorVersion"
 
         const val clientCio = "io.ktor:ktor-client-cio:$ktorVersion"
         const val serialization = "io.ktor:ktor-client-serialization:$ktorVersion"
         const val clientLogging = "io.ktor:ktor-client-logging:$ktorVersion"
+    }
+
+    object Glide {
+        private const val glideVersion = "4.12.0"
+        const val core = "com.github.bumptech.glide:glide:$glideVersion"
+        const val compiler = "com.github.bumptech.glide:compiler:$glideVersion"
     }
 
     const val material = "com.google.android.material:material:1.4.0"

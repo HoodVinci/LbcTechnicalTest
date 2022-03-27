@@ -5,5 +5,5 @@ object TestBuilders {
 
     fun domainItem(id: Int = 0, title: String = "", imageUrl: String = ""): Item = Item(id, title, imageUrl)
 
-    fun presentation(title: String = "", imageUrl: String = ""): PresentationItem = PresentationItem(title, imageUrl)
+    fun presentationItem(id: Int = 0, title: String = "", imageUrl: String = ""): PresentationItem = PresentationItem(id ,title, imageUrl)
 }

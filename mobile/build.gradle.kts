@@ -1,5 +1,6 @@
 plugins {
     id("android-app-conventions")
+    kotlin("kapt")
 }
 
 android {
@@ -14,4 +15,6 @@ dependencies {
     implementation(project(":presentation"))
     implementation(project(":lbcapi:ktor"))
     implementation(project(":repositories"))
+    implementation(Dependencies.Glide.core)
+    kapt(Dependencies.Glide.compiler)
 }
