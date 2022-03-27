@@ -14,6 +14,7 @@ android {
 dependencies {
     implementation(project(":presentation"))
     implementation(project(":lbcapi:ktor"))
+    implementation(project(":local:simplefile"))
     implementation(project(":repositories"))
     implementation(Dependencies.Glide.core)
     kapt(Dependencies.Glide.compiler)
