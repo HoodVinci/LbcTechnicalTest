@@ -2,9 +2,9 @@ package com.hoodbrains.lbctest.local.api
 
 interface LocalItemStore {
 
-    fun clearAll()
+    suspend fun clearAll()
 
-    fun save(list: List<LocalItem>)
+    suspend fun save(list: List<LocalItem>)
 
-    fun getAll(): List<LocalItem>
+   suspend fun getAll(): List<LocalItem>
 }
