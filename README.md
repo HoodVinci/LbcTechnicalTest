@@ -16,3 +16,4 @@ It uses precompiled gradle plugins.
 [Domain](./domain/README.md)
 [Repositories](./repositories/README.md)
 [Mobile Application](./mobile/README.md)
+[Local](./local/README.md)
