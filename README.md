@@ -15,3 +15,4 @@ It uses precompiled gradle plugins.
 [LbcApi](./lbcapi/README.md)
 [Domain](./domain/README.md)
 [Repositories](./repositories/README.md)
+[Mobile Application](./mobile/README.md)
