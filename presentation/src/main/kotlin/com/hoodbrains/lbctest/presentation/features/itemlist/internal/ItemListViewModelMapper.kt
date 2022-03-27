@@ -11,6 +11,6 @@ internal class ItemListViewModelMapper(private val itemListResources: ItemListRe
         if (list.isEmpty()) {
             ItemListViewState.Empty(itemListResources.messageWhenEmpty)
         } else {
-            ItemListViewState.Data(list.map { PresentationItem(it.title, it.imageUrl) })
+            ItemListViewState.Data(list.map { PresentationItem(it.id, it.title, it.imageUrl) })
         }
 }

@@ -33,7 +33,7 @@ class ItemListViewModelMapperTest {
     fun `map, when data, return Data with matching presentationItems`() {
         val result = mapper.map(listOf(TestBuilders.domainItem(title = "hello", imageUrl = "UrL")))
 
-        val expected = ItemListViewState.Data(listOf(TestBuilders.presentation(title = "hello", imageUrl = "UrL")))
+        val expected = ItemListViewState.Data(listOf(TestBuilders.presentationItem(title = "hello", imageUrl = "UrL")))
         assertThat(result).isEqualTo(expected)
     }
 

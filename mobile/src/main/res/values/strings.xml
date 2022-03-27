@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lbc Technical Test</string>
+    <string name="empty_list_message">Sorry nothing to diplay</string>
+</resources>
