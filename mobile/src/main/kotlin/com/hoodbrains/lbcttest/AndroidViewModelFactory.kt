@@ -1,5 +1,8 @@
 package com.hoodbrains.lbcttest
 
+import android.os.Bundle
+import android.os.Parcelable
+import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -22,5 +25,9 @@ class AndroidViewModelFactory(
 
 
 class AndroidItemListViewModel(private val itemListViewModel: ItemListViewModel) : ViewModel() {
+
+    val widgetState : Bundle = bundleOf()
+
     fun start(): LiveData<ItemListViewState> = itemListViewModel.start().asLiveData()
+
 }
