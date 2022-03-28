@@ -10,6 +10,7 @@ a neat api + it's multiplatform.
 ## Bench Application
 
 This is a simple java application, it contains test suites for benching the local item store.
+
 It's a simple way to have a very quick feedback on performance improvements. Plus it an be adapted to test 
 a new implementation and compare it to previous one.
 `./gradlew :local:benchapp:run`
