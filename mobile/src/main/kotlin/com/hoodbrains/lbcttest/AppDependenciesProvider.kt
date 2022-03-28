@@ -3,8 +3,10 @@ package com.hoodbrains.lbcttest
 import android.app.Application
 import com.hoodbrains.lbcapi.ktor.createApi
 import com.hoodbrains.lbctest.domain.UseCaseFactory
+import com.hoodbrains.lbctest.local.simplefile.createLocalItemStore
 import com.hoodbrains.lbctest.presentation.ViewModelFactory
 import com.hoodbrains.lbctest.repositories.RepositoriesAssembler
+import java.io.File
 
 class AppDependenciesProvider(private val app: Application) {
 
@@ -17,6 +19,8 @@ class AppDependenciesProvider(private val app: Application) {
         ViewModelFactory(createUseCaseFactory(), createResources())
 
     private fun createResources() = ResourcesFactoryImpl(app)
-    private fun createUseCaseFactory() = UseCaseFactory(RepositoriesAssembler(createApi()))
+    private fun createUseCaseFactory() = UseCaseFactory(RepositoriesAssembler(createApi(), createLocal()))
+
+    private fun createLocal() = createLocalItemStore(File(app.filesDir.absolutePath, "local.json").absolutePath)
 }
 

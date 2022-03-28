@@ -48,4 +48,6 @@ object Dependencies {
     }
 
     const val material = "com.google.android.material:material:1.4.0"
+    const val okio = "com.squareup.okio:okio:3.0.0"
+
 }
