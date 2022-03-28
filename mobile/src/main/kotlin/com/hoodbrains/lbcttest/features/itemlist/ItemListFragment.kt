@@ -52,6 +52,10 @@ class ItemListFragment(
         ItemListViewState.Loading -> renderLoading()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        binding?.saveState(viewModel.widgetState)
+        super.onSaveInstanceState(outState)
+    }
 
     private fun FragmentItemListBinding.renderLoading() {
         loader.visibility = View.VISIBLE
@@ -64,6 +68,7 @@ class ItemListFragment(
         text.visibility = View.INVISIBLE
         recycler.visibility = View.VISIBLE
         adapter.updateItems(state.list)
+        restoreState(viewModel.widgetState)
     }
 
     private fun FragmentItemListBinding.renderEmpty(state: ItemListViewState.Empty) {
@@ -78,5 +83,18 @@ class ItemListFragment(
         text.visibility = View.VISIBLE
         recycler.visibility = View.INVISIBLE
         text.text = "error"
+    }
+
+    private fun FragmentItemListBinding.saveState(bundle: Bundle) {
+        bundle.putParcelable(scrollStateKey, recycler.layoutManager?.onSaveInstanceState())
+    }
+
+    private fun FragmentItemListBinding.restoreState(bundle: Bundle) {
+        recycler.layoutManager?.onRestoreInstanceState(bundle.getParcelable(scrollStateKey))
+        viewModel.widgetState.clear()
+    }
+
+    companion object {
+        private const val scrollStateKey = "scrollState"
     }
 }
