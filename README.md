@@ -42,11 +42,16 @@ Finally, in order to have a presentation layer agnostic of the view presenting. 
 
 ## Possible next steps
 
-__Handling navigation in domain layer__ The AppState machine way
+__Handling navigation in domain layer__  
+The AppState machine way
 
-__Handling use interaction in view models__ Avoid passing callback through view layers (activity, fragments, adapters ...) and pass a generic callback tied to presentation items.
+__Handling use interaction in view models__   
+ Avoid passing callback through view layers (activity, fragments, adapters ...) and pass a generic callback tied to presentation items.
 
-__Entities builders in domain module__ Let the domain choose default values on construction and have a chance to reconcile data.
 
-__Kotlin Multiplatform__ A shared module including presentation.
+__Entities builders in domain module__  
+Let the domain choose default values on construction and have a chance to reconcile data.
+
+__Kotlin Multiplatform__  
+A shared module including presentation.
 
